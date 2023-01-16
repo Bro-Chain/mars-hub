@@ -100,6 +100,7 @@ import (
 	// wasm modules
 	"github.com/CosmWasm/wasmd/x/wasm"
 	wasmclient "github.com/CosmWasm/wasmd/x/wasm/client"
+	wasmkeeper "github.com/CosmWasm/wasmd/x/wasm/keeper"
 
 	// mars modules
 	"github.com/mars-protocol/hub/x/incentives"
@@ -667,7 +668,7 @@ func NewMarsApp(
 			panic("failed to register snapshot extension: " + err.Error())
 		}
 	}
-	
+
 	if loadLatest {
 		if err := app.LoadLatestVersion(); err != nil {
 			tmos.Exit(err.Error())
